@@ -43,7 +43,9 @@ const App = () => {
 
     if (loading) {
 
-      return <div><h2>recipes + "recipes found"</h2></div>;
+      return <div>
+        <h2>recipes + "recipes found"</h2>
+      </div>;
     }
   }
 
@@ -64,20 +66,22 @@ const App = () => {
 
         <button className="search-button" type='submit'>Search</button>
       </form>
-
-
-      <div className="recipes">
-        <div style={{ display: "inline" }}>
+      <div style={{ textAlign : "center" }}>
           <h2>  {recipes.length} recipes found</h2>
         </div>
-        {recipes.map(recipe => (
-          <Recipe
-            key={recipe.recipe.label}
-            title={recipe.recipe.label}
-            calories={roundToCalories(recipe.recipe.calories)}
-            image={recipe.recipe.image}
-            ingredients={recipe.recipe.ingredients} />
-        ))}
+
+      <div className="recipes">
+    
+        <div>
+          {recipes.map(recipe => (
+            <Recipe
+              key={recipe.recipe.label}
+              title={recipe.recipe.label}
+              calories={roundToCalories(recipe.recipe.calories)}
+              image={recipe.recipe.image}
+              ingredients={recipe.recipe.ingredients} />
+          ))}
+        </div>
       </div>
     </div>
   );
